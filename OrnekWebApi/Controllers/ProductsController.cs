@@ -41,6 +41,7 @@ public class ProductsController : ControllerBase
         return Ok(result);
     }
 
+    [Authorize]
     [HttpPost]
     public async Task<IActionResult> AddProduct(Product product)
     {
@@ -49,6 +50,7 @@ public class ProductsController : ControllerBase
         return CreatedAtAction(nameof(GetProduct), new { id = product.Id }, product);
     }
 
+    [Authorize]
     [HttpPut("{id}")]
     public async Task<IActionResult> UpdateProduct(int id, Product product)
     {
@@ -73,6 +75,7 @@ public class ProductsController : ControllerBase
 
     }
 
+    [Authorize]
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteProduct(int id)
     {
